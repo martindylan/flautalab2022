@@ -1,0 +1,33 @@
+#N canvas 104 104 1366 685 12;
+#X obj 77 56 inlet~;
+#X obj 77 316 *~;
+#X obj 174 316 *~;
+#X obj 56 157 sel -1;
+#X obj 95 186 expr 1-($f1*0.01);
+#X obj 56 114 expr if($f1>0 \, $f1 \, -1) \; if($f1<=0 \, 1 \, -1)
+;
+#X obj 221 157 sel -1;
+#X obj 153 258 sel -1;
+#X obj 318 258 sel -1;
+#X obj 153 215 expr if($f1<0 \, $f1 \, -1) \; if($f1>=0 \, 1 \, -1)
+;
+#X obj 192 287 expr 1-(abs($f1)*0.01);
+#X obj 77 345 outlet~;
+#X obj 174 345 outlet~;
+#X obj 153 56 inlet;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 1 0 11 0;
+#X connect 2 0 12 0;
+#X connect 3 1 4 0;
+#X connect 4 0 1 1;
+#X connect 5 0 3 0;
+#X connect 5 1 6 0;
+#X connect 6 1 1 1;
+#X connect 7 1 10 0;
+#X connect 8 1 2 1;
+#X connect 9 0 7 0;
+#X connect 9 1 8 0;
+#X connect 10 0 2 1;
+#X connect 13 0 5 0;
+#X connect 13 0 9 0;
