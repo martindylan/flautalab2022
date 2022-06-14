@@ -2,22 +2,22 @@
 #X obj 995 552 catch~ L;
 #X obj 1021 581 catch~ R;
 #X obj 22 64 adc~ 1;
-#X obj 240 78 bng 25 250 50 0 empty empty empty 17 7 0 10 #00ff04 #ffffff
-#000000;
+#X obj 240 78 bng 25 250 50 0 empty empty empty 17 7 0 10 -4034 -262144
+-1;
 #X obj 537 64 adc~ 2;
-#X obj 849 81 vsl 20 128 700 20000 0 0 empty empty Filter_freq 25 2
-0 10 #00fc04 #fcfcfc #000000 0 1;
+#X obj 849 81 vsl 20 128 700 22000 0 0 empty empty Filter_freq 25 2
+0 10 -4034 -262144 -1 0 1;
 #X obj 187 302 *~;
-#X obj 702 299 *~, f 6;
+#X obj 702 308 *~, f 6;
 #X obj 24 473 vsl 25 128 0 1 0 0 \$0-condenser-gain empty Ganancia_condenser
-0 -9 0 10 #00fc04 #fcfcfc #000000 0 1;
+0 -9 0 10 -4034 -262144 -1 12700 1;
 #X obj 996 610 dac~;
 #X msg 205 156 \$1 5;
 #X obj 205 180 line~;
-#X msg 741 246 \$1 5;
-#X obj 741 270 line~;
+#X msg 741 255 \$1 5;
+#X obj 741 279 line~;
 #X obj 142 473 vsl 25 128 0 1 0 0 \$0-condenser-resynth-gain empty
-Ganancia_resynth 30 7 0 10 #00fc04 #fcfcfc #000000 0 1;
+Ganancia_resynth 30 7 0 10 -4034 -262144 -1 0 1;
 #X obj 205 132 r \$0-condenser-resynth-gain;
 #X obj 22 190 *~;
 #X obj 22 248 throw~ L;
@@ -26,10 +26,10 @@ Ganancia_resynth 30 7 0 10 #00fc04 #fcfcfc #000000 0 1;
 #X obj 40 161 line~;
 #X obj 40 113 r \$0-condenser-gain;
 #X obj 656 473 vsl 25 128 0 1 0 0 \$0-contacto-delay-gain empty Ganancia_delay/granos
-30 7 0 10 #00fc04 #fcfcfc #000000 0 1;
+30 7 0 10 -4034 -262144 -1 12700 1;
 #X obj 691 579 tgl 25 0 \$0-contacto-delay-pass empty delay_pass/granos_rec
-30 12 0 10 #00fc04 #000000 #000000 0 1;
-#X obj 741 222 r \$0-contacto-delay-gain;
+30 12 0 10 -4034 -1 -1 0 1;
+#X obj 741 231 r \$0-contacto-delay-gain;
 #X obj 142 423 ctlin 1 5;
 #X obj 142 447 / 127;
 #X obj 702 212 hip~;
@@ -46,18 +46,18 @@ Ganancia_resynth 30 7 0 10 #00fc04 #fcfcfc #000000 0 1;
 #X obj 117 171 loadbang;
 #X msg 117 195 0;
 #X obj 22 219 flautalab/pan~;
-#X obj 702 357 throw~ L;
-#X obj 797 357 throw~ R;
-#X obj 797 280 loadbang;
-#X msg 797 304 0;
-#X obj 702 328 flautalab/pan~;
+#X obj 702 366 throw~ L;
+#X obj 797 366 throw~ R;
+#X obj 797 289 loadbang;
+#X msg 797 313 0;
+#X obj 702 337 flautalab/pan~;
 #X obj 187 389 throw~ L;
 #X obj 282 389 throw~ R;
 #X obj 282 312 loadbang;
 #X msg 282 336 0;
 #X obj 187 360 flautalab/pan~;
 #X obj 589 300 hradio 25 1 0 2 \$0-delgran empty delay/granola 0 -8
-0 10 #00ff04 #ffffff #000000 0;
+0 10 -4034 -262144 -1 1;
 #N canvas 78 78 1366 685 delay 0;
 #X obj 23 21 inlet~;
 #X obj 41 50 r \$0-contacto-delay-pass;
@@ -125,14 +125,14 @@ el micro \;;
 #X connect 6 0 7 0;
 #X connect 7 0 2 2;
 #X restore 197 331 pd reverb;
-#X obj 331 78 nbx 5 25 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
-#00ff04 #000000 #000000 0 256;
+#X obj 331 78 nbx 5 25 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -4034 -1 -1 0 256;
 #N canvas 52 52 1366 685 granos 0;
 #X obj 45 173 flautalab/granos-rt~;
 #X msg 45 149 48 127;
 #X msg 432 144 rec \$1;
-#X obj 432 124 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#X obj 432 124 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
 #X obj 471 76 r \$0-delgran;
 #X obj 432 47 r \$0-contacto-delay-pass;
 #X obj 45 511 *~;
@@ -165,7 +165,7 @@ el micro \;;
 #X connect 16 0 15 0;
 #X restore 772 103 pd granos;
 #X obj 545 473 vsl 25 128 0 1 0 0 \$0-contacto-gain empty Ganancia_contacto
-0 -9 0 10 #00fc04 #fcfcfc #000000 0 1;
+0 -9 0 10 -4034 -262144 -1 12700 1;
 #X text 523 615 agregar ctlin en caso \; de no poder amplificar \;
 directo el micro \;;
 #X obj 537 190 *~;
@@ -177,8 +177,8 @@ directo el micro \;;
 #X msg 632 195 0;
 #X obj 537 219 flautalab/pan~;
 #X obj 555 113 r \$0-contacto-gain;
-#X obj 22 15 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 22 15 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X obj 22 35 tabplay~ multi;
 #X msg 1035 170 read -resize ./multi.wav multi;
 #X obj 1035 194 soundfiler;
@@ -187,8 +187,8 @@ directo el micro \;;
 #X coords 0 1 271395 -1 100 50 1 0 0;
 #X restore 1035 301 graph;
 #X obj 187 273 lop~ 1000;
-#X obj 537 15 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 537 15 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X obj 537 35 tabplay~ keyrain;
 #X obj 1055 247 soundfiler;
 #X msg 1055 223 read -resize ./keyrain.wav keyrain;
@@ -197,6 +197,9 @@ directo el micro \;;
 #X array keyrain 252813 float 2;
 #X coords 0 1 252813 -1 100 50 1 0 0;
 #X restore 1035 376 graph;
+#X obj 702 236 hip~;
+#X obj 702 260 hip~;
+#X obj 702 284 hip~;
 #X connect 0 0 9 0;
 #X connect 1 0 9 1;
 #X connect 2 0 16 0;
@@ -206,6 +209,9 @@ directo el micro \;;
 #X connect 4 0 57 0;
 #X connect 4 0 60 0;
 #X connect 5 0 27 1;
+#X connect 5 0 81 1;
+#X connect 5 0 82 1;
+#X connect 5 0 83 1;
 #X connect 6 0 55 0;
 #X connect 6 0 50 0;
 #X connect 7 0 45 0;
@@ -222,7 +228,7 @@ directo el micro \;;
 #X connect 24 0 12 0;
 #X connect 25 0 26 0;
 #X connect 26 0 14 0;
-#X connect 27 0 7 0;
+#X connect 27 0 81 0;
 #X connect 28 0 5 0;
 #X connect 29 0 22 0;
 #X connect 30 0 74 0;
@@ -270,3 +276,6 @@ directo el micro \;;
 #X connect 78 0 77 0;
 #X connect 79 0 71 0;
 #X connect 79 0 78 0;
+#X connect 81 0 82 0;
+#X connect 82 0 83 0;
+#X connect 83 0 7 0;
