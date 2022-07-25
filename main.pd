@@ -15,7 +15,7 @@
 #X msg 741 255 \$1 5;
 #X obj 741 279 line~;
 #X obj 142 473 vsl 25 128 0 4 0 0 \$0-condenser-resynth-gain empty
-Ganancia_resynth 30 7 0 10 -4034 -262144 -1 198 1;
+Ganancia_resynth 30 7 0 10 -4034 -262144 -1 0 1;
 #X obj 205 132 r \$0-condenser-resynth-gain;
 #X obj 22 190 *~;
 #X obj 22 248 throw~ L;
@@ -24,7 +24,7 @@ Ganancia_resynth 30 7 0 10 -4034 -262144 -1 198 1;
 #X obj 40 161 line~;
 #X obj 40 113 r \$0-condenser-gain;
 #X obj 656 473 vsl 25 128 0 8 0 0 \$0-contacto-delay-gain empty Ganancia_delay/granos
-30 7 0 10 -4034 -262144 -1 12601 1;
+30 7 0 10 -4034 -262144 -1 0 1;
 #X obj 691 579 tgl 25 0 \$0-contacto-delay-pass empty delay_pass/granos_rec
 30 12 0 10 -4034 -1 -1 0 1;
 #X obj 741 231 r \$0-contacto-delay-gain;
@@ -69,7 +69,7 @@ el micro \;;
 #X connect 7 0 2 2;
 #X restore 197 331 pd reverb;
 #X obj 331 78 nbx 5 25 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
-10 -4034 -1 -1 21.2598 256;
+10 -4034 -1 -1 0 256;
 #N canvas 15 14 1366 691 granos 0;
 #X obj 45 173 flautalab/granos-rt~;
 #X msg 45 149 48 127;
@@ -90,7 +90,7 @@ el micro \;;
 #X msg 1007 504 grain rate \$1;
 #X msg 1122 518 grain duration \$1;
 #X obj 1007 334 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 1007 475 +;
 #X obj 1007 446 *;
 #X obj 1007 417 - 50;
@@ -163,7 +163,7 @@ offset duration -500;
 #X connect 41 0 25 0;
 #X restore 702 103 pd granos;
 #X obj 545 473 vsl 25 128 0 1 0 0 \$0-contacto-gain empty Ganancia_contacto
-0 -9 0 10 -4034 -262144 -1 12700 1;
+0 -9 0 10 -4034 -262144 -1 0 1;
 #X text 523 615 agregar ctlin en caso \; de no poder amplificar \;
 directo el micro \;;
 #X obj 537 190 *~;
