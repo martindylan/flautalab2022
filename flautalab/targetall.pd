@@ -1,0 +1,14 @@
+#N canvas 0 50 786 300 12;
+#X obj 12 12 inlet;
+#X obj 12 159 outlet;
+#X obj 12 100 list trim;
+#X obj 12 71 list prepend all;
+#X text 149 24 esta abstracción se encarga de recibir un mensaje \,
+agregarle el prefijo "all" y luego trimear el mensaje (quitar el prefijo
+"list") \; se utiliza para enviar un mensaje a todas las instancias
+generadas por un objeto [clone] mediante una inlet \, es una situación
+extremadamente común por lo cual decidí hacerlo una abstracción
+;
+#X connect 0 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
