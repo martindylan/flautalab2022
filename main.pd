@@ -1,25 +1,25 @@
-#N canvas -8 -8 1370 729 12;
-#X obj -12 1 cnv 15 475 670 empty empty RESÍNTESIS 228 647 0 40 #c7c6ff
-#000000 0;
-#X obj 544 1 cnv 15 235 565 empty empty GRANOS 84 26 0 40 #c7c6ff #000000
+#N canvas 160 85 1370 729 12;
+#X obj -12 1 cnv 15 475 670 empty empty RESÍNTESIS 228 647 0 40 -203904
+-1 0;
+#X obj 544 1 cnv 15 430 565 empty empty GRANOS 84 26 0 40 -203904 -1
 0;
 #X obj 1229 565 catch~ L;
 #X obj 1255 594 catch~ R;
-#X obj 131 165 bng 25 250 50 0 empty empty RESYNTH 30 12 0 15 #00fc04
-#fcfcfc #000000;
+#X obj 131 165 bng 25 250 50 0 empty empty RESYNTH 30 12 0 15 -4034
+-262144 -1;
 #X obj 8 545 *~;
 #X obj 564 468 *~, f 6;
 #X obj 1230 623 dac~;
 #X msg 26 415 \$1 5;
 #X obj 26 439 line~;
-#X msg 603 415 \$1 5;
+#X msg 733 420 \$1 5;
 #X obj 603 439 line~;
-#X obj 33 274 vsl 25 128 0 4 0 0 empty empty GANANCIA 30 7 0 15 #00fc04
-#fcfcfc #000000 0 1;
-#X obj 603 279 vsl 25 128 0 8 0 0 empty empty GANANCIA 30 7 0 15 #00fc04
-#fcfcfc #000000 0 1;
+#X obj 33 274 vsl 25 128 0 4 0 0 empty empty GANANCIA 30 7 0 15 -4034
+-262144 -1 6945 1;
+#X obj 733 284 vsl 25 128 0 8 0 0 empty empty GANANCIA 30 7 0 15 -4034
+-262144 -1 0 1;
 #X obj 624 165 tgl 25 0 \$0-contacto-delay-pass empty REC 30 12 0 15
-#00fc04 #000000 #000000 0 1;
+-4034 -1 -1 0 1;
 #X obj 8 497 lop~;
 #X obj 131 141 ctlin 22 16;
 #X obj 624 136 ctlin 24 16;
@@ -43,7 +43,7 @@
 #X msg 124 157 75;
 #X msg 107 133 6000;
 #X obj 107 94 loadbang;
-#X msg 90 157 90;
+#X msg 90 157 80;
 #X connect 0 0 2 0;
 #X connect 2 0 1 0;
 #X connect 3 0 2 1;
@@ -55,103 +55,101 @@
 #X connect 6 0 7 0;
 #X connect 7 0 2 2;
 #X restore 18 574 pd reverb;
-#X obj 243 165 nbx 5 25 -1e+37 1e+37 0 0 empty empty TRANSPOSICIÓN
-85 12 0 15 #00fc04 #000000 #000000 0 256;
-#N canvas 15 14 1366 691 granos 0;
+#X obj 243 175 nbx 5 25 -1e+037 1e+037 0 0 empty empty TRANSPOSICIÓN
+85 12 0 15 -4034 -1 -1 0 256;
+#N canvas 98 398 1366 691 granos 0;
 #X obj 45 173 flautalab/granos-rt~;
 #X msg 45 149 48 127;
 #X msg 432 144 rec \$1;
-#X obj 498 120 loadbang;
+#X obj 432 520 loadbang;
 #X obj 45 439 outlet~;
 #X obj 238 144 inlet~;
 #X obj 45 125 delay 5;
 #X obj 45 101 sel 0;
 #X obj 432 114 != 0;
-#X msg 670 374 grain rate \$1;
-#X msg 785 388 grain duration \$1;
-#X obj 670 204 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
-#X obj 670 345 +;
-#X obj 670 316 *;
-#X obj 670 287 - 50;
-#X obj 670 257 random 200;
-#X obj 670 229 metro 1000;
-#X msg 597 232 120;
-#X obj 785 315 * 3;
-#X obj 785 257 / 127;
-#X obj 785 286 expr 1-$f1;
-#X obj 785 363 * 100;
-#X obj 785 339 + 0.6;
-#X msg 498 144 offset playhead chance 100 \, grain duration 700 \,
+#X msg 740 224 grain rate \$1;
+#X msg 855 238 grain duration \$1;
+#X obj 740 54 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 740 137 - 50;
+#X obj 740 107 random 200;
+#X obj 855 165 * 3;
+#X obj 855 107 / 127;
+#X obj 855 136 expr 1-$f1;
+#X obj 855 213 * 100;
+#X obj 855 189 + 0.6;
+#X msg 432 544 offset playhead chance 100 \, grain duration 700 \,
 offset duration -500;
-#X msg 589 477 offset duration chance \$1;
-#X msg 778 477 offset duration precision \$1;
-#X obj 917 415 * 25;
-#X obj 937 358 * 100;
-#X msg 980 154 sample note \$1;
-#X obj 980 14 ctlin 1 2;
-#X obj 980 38 / 127;
-#X obj 980 82 * 24;
-#X obj 980 106 - 12;
-#X obj 980 131 + 48;
-#X obj 980 60 expr 1-$f1;
-#X obj 785 229 ctlin 0 1;
+#X msg 659 327 offset duration chance \$1;
+#X msg 848 327 offset duration precision \$1;
+#X obj 856 285 * 25;
+#X obj 957 208 * 100;
+#X msg 550 154 sample note \$1;
+#X obj 550 38 / 127;
+#X obj 550 82 * 24;
+#X obj 550 106 - 12;
+#X obj 550 131 + 48;
+#X obj 550 60 expr 1-$f1;
 #X obj 432 62 inlet;
+#X obj 740 195 + 125;
+#X obj 739 79 metro 500;
+#X obj 740 166 *;
+#X obj 550 14 inlet;
+#X obj 855 70 inlet;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 2;
-#X connect 3 0 23 0;
+#X connect 3 0 19 0;
 #X connect 5 0 0 1;
 #X connect 6 0 1 0;
 #X connect 7 0 6 0;
 #X connect 8 0 2 0;
 #X connect 9 0 0 2;
 #X connect 10 0 0 2;
-#X connect 11 0 16 0;
-#X connect 12 0 9 0;
+#X connect 11 0 32 0;
+#X connect 12 0 33 0;
 #X connect 13 0 12 0;
-#X connect 14 0 13 0;
-#X connect 15 0 14 0;
-#X connect 16 0 15 0;
-#X connect 17 0 12 1;
-#X connect 18 0 22 0;
-#X connect 19 0 20 0;
-#X connect 19 0 26 0;
-#X connect 19 0 27 0;
-#X connect 20 0 13 1;
-#X connect 20 0 18 0;
-#X connect 21 0 10 0;
-#X connect 22 0 21 0;
-#X connect 23 0 0 2;
+#X connect 14 0 18 0;
+#X connect 15 0 16 0;
+#X connect 15 0 22 0;
+#X connect 15 0 23 0;
+#X connect 16 0 14 0;
+#X connect 16 0 33 1;
+#X connect 17 0 10 0;
+#X connect 18 0 17 0;
+#X connect 19 0 0 2;
+#X connect 20 0 0 2;
+#X connect 21 0 0 2;
+#X connect 22 0 20 0;
+#X connect 23 0 21 0;
 #X connect 24 0 0 2;
-#X connect 25 0 0 2;
-#X connect 26 0 24 0;
-#X connect 27 0 25 0;
-#X connect 28 0 0 2;
-#X connect 29 0 30 0;
-#X connect 30 0 34 0;
-#X connect 31 0 32 0;
-#X connect 32 0 33 0;
-#X connect 33 0 28 0;
-#X connect 34 0 31 0;
-#X connect 35 0 19 0;
-#X connect 36 0 8 0;
-#X connect 36 0 7 0;
+#X connect 25 0 29 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 28 0 24 0;
+#X connect 29 0 26 0;
+#X connect 30 0 8 0;
+#X connect 30 0 7 0;
+#X connect 31 0 9 0;
+#X connect 32 0 13 0;
+#X connect 33 0 31 0;
+#X connect 34 0 25 0;
+#X connect 35 0 15 0;
 #X restore 564 200 pd granos;
 #X obj 8 521 lop~ 1000;
 #X obj 243 107 expr ($f1/127*600)-300;
-#X obj 603 253 / 16;
+#X obj 733 258 / 16;
 #X obj 33 248 / 32;
-#X obj 603 229 ctlin 1 1;
+#X obj 733 234 ctlin 1 1;
 #X obj 33 224 ctlin 1 3;
 #X obj 243 78 ctlin 1 4;
 #X obj 564 21 adc~ 3;
 #X obj 8 21 adc~ 1 2, f 9;
 #X obj 8 171 *~;
 #X obj 68 171 *~;
-#X obj 26 62 vsl 16 48 0 1 0 0 empty empty mic1 0 -9 0 15 #00fc04 #fcfcfc
-#000000 0 1;
-#N canvas 351 61 1366 685 pitch 0;
+#X obj 26 62 vsl 16 48 0 1 0 0 empty empty mic1 0 -9 0 15 -4034 -262144
+-1 0 1;
+#N canvas 173 71 1366 685 pitch 0;
 #X obj 132 116 inlet;
 #X obj 132 145 route bang float;
 #X msg 132 272 0;
@@ -191,19 +189,27 @@ offset duration -500;
 #X connect 14 1 4 1;
 #X restore 243 136 pd pitch;
 #X obj 320 72 bng 25 250 50 0 empty empty llevar\\\ a\\\ 0 30 12 0
-15 #00fc04 #fcfcfc #000000;
-#X obj 320 43 ctlin 99 99;
+15 -4034 -262144 -1;
 #X msg 26 118 \$1 5;
 #X obj 26 142 line~;
-#X obj 86 62 vsl 16 48 0 1 0 0 empty empty mic2 0 -9 0 15 #00fc04 #fcfcfc
-#000000 0 1;
+#X obj 86 62 vsl 16 48 0 1 0 0 empty empty mic2 0 -9 0 15 -4034 -262144
+-1 0 1;
 #X msg 86 118 \$1 5;
 #X obj 86 142 line~;
 #X obj 564 171 *~;
-#X obj 582 62 vsl 16 48 0 1 0 0 empty empty mic3 0 -9 0 15 #00fc04
-#fcfcfc #000000 0 1;
+#X obj 582 62 vsl 16 48 0 1 0 0 empty empty mic3 0 -9 0 15 -4034 -262144
+-1 0 1;
 #X msg 582 118 \$1 5;
 #X obj 582 142 line~;
+#X obj 733 69 vsl 25 128 0 127 0 0 empty empty ALTURA 30 7 0 15 -4034
+-262144 -1 0 1;
+#X obj 832 69 vsl 25 128 0 127 0 0 empty empty REGULARIDAD 30 7 0 15
+-4034 -262144 -1 200 1;
+#X obj 734 44 ctlin 1 2;
+#X obj 832 45 ctlin 0 1;
+#X obj 320 43 ctlin 12 16;
+#X obj 243 205 vsl 25 128 -300 300 0 0 empty empty empty 30 7 0 15
+-4034 -262144 -1 6350 1;
 #X connect 2 0 7 0;
 #X connect 3 0 7 1;
 #X connect 4 0 29 1;
@@ -233,6 +239,7 @@ offset duration -500;
 #X connect 29 0 15 0;
 #X connect 30 0 28 0;
 #X connect 31 0 29 1;
+#X connect 31 0 61 0;
 #X connect 32 0 6 0;
 #X connect 33 0 5 0;
 #X connect 34 0 45 0;
@@ -241,21 +248,25 @@ offset duration -500;
 #X connect 37 0 35 0;
 #X connect 38 0 36 0;
 #X connect 39 0 34 0;
-#X connect 40 0 53 0;
+#X connect 40 0 52 0;
 #X connect 41 0 42 0;
 #X connect 41 1 43 0;
 #X connect 42 0 29 0;
 #X connect 43 0 29 0;
-#X connect 44 0 48 0;
+#X connect 44 0 47 0;
 #X connect 45 0 31 0;
 #X connect 46 0 45 0;
-#X connect 47 0 46 0;
-#X connect 48 0 49 0;
-#X connect 49 0 42 1;
+#X connect 47 0 48 0;
+#X connect 48 0 42 1;
+#X connect 49 0 50 0;
 #X connect 50 0 51 0;
-#X connect 51 0 52 0;
-#X connect 52 0 43 1;
-#X connect 53 0 32 0;
+#X connect 51 0 43 1;
+#X connect 52 0 32 0;
+#X connect 53 0 54 0;
 #X connect 54 0 55 0;
-#X connect 55 0 56 0;
-#X connect 56 0 53 1;
+#X connect 55 0 52 1;
+#X connect 56 0 32 2;
+#X connect 57 0 32 3;
+#X connect 58 0 56 0;
+#X connect 59 0 57 0;
+#X connect 60 0 46 0;
